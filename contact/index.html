@@ -75,6 +75,7 @@
             </section>
 
             <section class="contactForm__wrap">
+                <p class="contactForm__sent" id="contactSent" hidden>お問い合わせいただきありがとうございます。内容を確認のうえ、2営業日以内に担当者よりご連絡いたします。</p>
                 <p class="contactForm__lead">
                     Web制作・グラフィック制作・動画制作に関するご相談、お見積りのご依頼など、<br class="pcBr">お気軽にお問い合わせください。2営業日以内にご返信いたします。
                 </p>
@@ -82,7 +83,7 @@
                 <form action="https://formsubmit.co/creators.ontheway@gmail.com" method="POST">
                     <input type="hidden" name="_subject" value="【on the way creators】ウェブサイトよりお問い合わせがありました">
                     <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://onthewaycreators.com/contact/thanks/">
+                    <input type="hidden" name="_next" value="https://onthewaycreators.com/contact/?sent=true">
                     <input type="text" name="_honey" class="contactForm__honey" tabindex="-1" autocomplete="off">
 
                     <div class="contactForm__group">
@@ -162,5 +163,12 @@
         </footer>
     </div>
     <script src="../assets/js/script.js" defer></script>
+    <script>
+        if (new URLSearchParams(location.search).get('sent') === 'true') {
+            var sentEl = document.getElementById('contactSent');
+            sentEl.hidden = false;
+            sentEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
 </body>
 </html>
