@@ -271,8 +271,10 @@ header.scrolled {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
     gap: 10px;
-    padding: 10px 24px;
+    height: 74px;
+    padding: 0 24px;
     border-radius: 50px;
     background-color: #FFFFFF;
     filter: drop-shadow(2px 2px 1px rgba(210, 180, 140, 0.5));
@@ -311,6 +313,7 @@ header.scrolled {
 
     .header__logo {
         background-color: transparent;
+        height: auto;
         padding: 0;
         filter: none;
         gap: 6px;
@@ -339,9 +342,11 @@ header.scrolled {
     display: flex;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    height: 74px;
     border-radius: 50px;
     background-color: #FFFFFF;
-    padding: 15px 50px;
+    padding: 0 50px;
     filter: drop-shadow(2px 2px 1px rgba(210, 180, 140, 0.5));
 }
 
