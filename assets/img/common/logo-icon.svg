@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="on the way creators">
+  <rect x="0" y="0" width="64" height="64" rx="18" fill="#333333"/>
+  <path d="M14 47 C14 37 24 37 24 28 C24 20 32 20 32 24" fill="none" stroke="#FFE200" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="45" cy="19" r="7" fill="#FFE200"/>
+</svg>
