@@ -214,7 +214,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     autoplay: {
       delay: 2000,
-      reverseDirection: true,
+      reverseDirection: false,
       disableOnInteraction: false,
     },
 
