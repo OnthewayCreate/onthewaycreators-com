@@ -29,6 +29,19 @@
     margin-bottom: 40px;
 }
 
+.contactForm__error {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.8;
+    text-align: center;
+    color: #C0392B;
+    background-color: #FDECEA;
+    border: 1px solid #C0392B;
+    border-radius: 12px;
+    padding: 20px 28px;
+    margin-bottom: 40px;
+}
+
 .contactForm__group {
     margin-bottom: 36px;
 }
@@ -157,6 +170,25 @@
     margin-bottom: 48px;
 }
 
+.contactThanks__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333333;
+    background-color: #FFFFFF;
+    border: 2px solid #333333;
+    padding: 16px 40px;
+    border-radius: 100px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.contactThanks__btn:hover {
+    background-color: #333333;
+    color: #FFFFFF;
+}
+
 @media screen and (max-width: 599px) {
     .contactForm__wrap {
         padding: 40px 6% 100px;
@@ -169,5 +201,10 @@
 
     .contactThanks__title {
         font-size: 2.4rem;
+    }
+
+    .contactThanks__btn {
+        width: 100%;
+        justify-content: center;
     }
 }

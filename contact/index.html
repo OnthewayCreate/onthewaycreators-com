@@ -76,14 +76,15 @@
 
             <section class="contactForm__wrap">
                 <p class="contactForm__sent" id="contactSent" hidden>お問い合わせいただきありがとうございます。内容を確認のうえ、2営業日以内に担当者よりご連絡いたします。</p>
-                <p class="contactForm__lead">
+                <p class="contactForm__error" id="contactError" hidden>送信に失敗しました。お手数ですが、時間をおいて再度お試しください。</p>
+                <p class="contactForm__lead" id="contactLead">
                     Web制作・グラフィック制作・動画制作に関するご相談、お見積りのご依頼など、<br class="pcBr">お気軽にお問い合わせください。2営業日以内にご返信いたします。
                 </p>
 
-                <form action="https://formsubmit.co/creators.ontheway@gmail.com" method="POST">
+                <form id="contactForm" action="https://formsubmit.co/creators.ontheway@gmail.com" method="POST">
                     <input type="hidden" name="_subject" value="【on the way creators】ウェブサイトよりお問い合わせがありました">
                     <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://onthewaycreators.com/contact/?sent=true">
+                    <input type="hidden" name="_next" value="https://onthewaycreators.com/contact/thanks/">
                     <input type="text" name="_honey" class="contactForm__honey" tabindex="-1" autocomplete="off">
 
                     <div class="contactForm__group">
@@ -164,11 +165,40 @@
     </div>
     <script src="../assets/js/script.js" defer></script>
     <script>
-        if (new URLSearchParams(location.search).get('sent') === 'true') {
+        (function () {
+            var form = document.getElementById('contactForm');
+            var lead = document.getElementById('contactLead');
             var sentEl = document.getElementById('contactSent');
-            sentEl.hidden = false;
-            sentEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
+            var errorEl = document.getElementById('contactError');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                errorEl.hidden = true;
+
+                var submitBtn = form.querySelector('.contactForm__submit');
+                submitBtn.disabled = true;
+                submitBtn.textContent = '送信中...';
+
+                fetch('https://formsubmit.co/ajax/creators.ontheway@gmail.com', {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: new FormData(form)
+                })
+                    .then(function (res) {
+                        if (!res.ok) throw new Error('送信に失敗しました');
+                        form.hidden = true;
+                        lead.hidden = true;
+                        sentEl.hidden = false;
+                        sentEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    })
+                    .catch(function () {
+                        errorEl.hidden = false;
+                        errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = '送信する';
+                    });
+            });
+        })();
     </script>
 </body>
 </html>
