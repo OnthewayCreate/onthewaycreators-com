@@ -138,8 +138,8 @@ strength
 .strength__list {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  place-items: center; 
-  gap: 200px 5%;
+  place-items: center;
+  gap: 160px 5%;
   padding: 0 5%;
   margin-top: 210px;
 }
@@ -156,12 +156,12 @@ strength
 
 .strength__item .number {
     font-family: 'Zen Kaku Gothic New';
-    font-size: 20rem;
+    font-size: 15rem;
     font-weight: 900;
     color: #E5E5E5;
     line-height: 1;
     position: absolute;
-    top: -10vw;
+    top: -7.5vw;
     left: 2%;
 }
 
@@ -171,13 +171,14 @@ strength
     font-size: 2.4rem;
     font-weight: 600;
     text-align: left;
-    margin-top: 114px;
+    margin-top: 90px;
     font-size: clamp(18px, 100vw * 24 / 1060, 24px);
 }
 
 .strength__illustGroup {
-    position: relative;       
-    margin: 70px auto 0;
+    position: relative;
+    width: 78%;
+    margin: 50px auto 0;
 }
 
 .strength__illustGroup .strength__illust {
@@ -241,16 +242,17 @@ strength
     }
 
     .strength__item .number {
-        font-size: 7.5rem;
+        font-size: 5.8rem;
     }
 
     .strength__item .txt {
-        margin-top: 50px;
+        margin-top: 40px;
         font-size: 1.2rem;
     }
 
-    .strength__illustGroup {      
-        margin: 30px auto 0;
+    .strength__illustGroup {
+        width: 78%;
+        margin: 22px auto 0;
     }
 
     .strength__item:first-child br{
